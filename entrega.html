@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Status da Entrega - Burger House</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        :root {
+            --primary-red: #e31837;
+            --dark-red: #b31212;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--primary-red);
+        }
+
+        .status-bar {
+            display: flex;
+            justify-content: space-between;
+            margin: 40px 0;
+            position: relative;
+        }
+
+        .status-bar::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #ddd;
+            z-index: 1;
+        }
+
+        .status-step {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            background: white;
+            padding: 0 10px;
+        }
+
+        .status-circle {
+            width: 30px;
+            height: 30px;
+            background: #ddd;
+            border-radius: 50%;
+            margin: 0 auto 10px;
+        }
+
+        .status-step.active .status-circle {
+            background: var(--primary-red);
+        }
+
+        .delivery-info {
+            margin-top: 40px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 5px;
+        }
+
+        .delivery-info h3 {
+            color: var(--dark-red);
+            margin-bottom: 15px;
+        }
+
+        .info-item {
+            margin: 10px 0;
+            padding: 5px 0;
+        }
+
+        .info-label {
+            font-weight: bold;
+            color: #666;
+        }
+
+        .back-button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: var(--primary-red);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+
+        .back-button:hover {
+            background: var(--dark-red);
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                margin: 10px;
+                padding: 15px;
+            }
+
+            .status-bar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+
+            .status-bar::before {
+                height: 100%;
+                width: 3px;
+                left: 15px;
+                top: 0;
+            }
+
+            .status-step {
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                padding-left: 30px;
+            }
+
+            .status-circle {
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Status do Pedido</h1>
+            <p>Pedido #123456</p>
+        </div>
+
+        <div class="status-bar">
+            <div class="status-step active">
+                <div class="status-circle"></div>
+                <p>Confirmado</p>
+            </div>
+            <div class="status-step">
+                <div class="status-circle"></div>
+                <p>Preparando</p>
+            </div>
+            <div class="status-step">
+                <div class="status-circle"></div>
+                <p>A Caminho</p>
+            </div>
+            <div class="status-step">
+                <div class="status-circle"></div>
+                <p>Entregue</p>
+            </div>
+        </div>
+
+        <div class="delivery-info">
+            <h3>Informações da Entrega</h3>
+            <div class="info-item">
+                <span class="info-label">Tempo Estimado:</span>
+                <span>30-45 minutos</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Endereço:</span>
+                <span>Quadra 308 sul, IFTO - Campus Palmas</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Contato:</span>
+                <span>(99) 98447-3729</span>
+            </div>
+        </div>
+
+        <a href="lanchonete2.html" class="back-button">Voltar para o Início</a>
+    </div>
+    <script src="scriptentrega.js"></script>
+</body>
+</html>
